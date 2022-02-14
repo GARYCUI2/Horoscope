@@ -1,0 +1,50 @@
+{
+  "1":
+    {"name": "Sagittarius",
+      "img_url":"/Horoscope/react-front-end/public/sagittarius.jpeg",
+      "description":"this is Sagittarius description!!"},
+  "2":
+    {"name": "Capricorn",
+      "img_url":"/Horoscope/react-front-end/public/capricorn.jpeg",
+      "description":"this is Capricorn description!!"},
+  "3":
+    {"name": "Aquarius",
+      "img_url":"/Horoscope/react-front-end/public/aquarius.jpeg",
+      "description":"this is Aquarius description!!"},
+  "4":
+    {"name": "Pisces",
+      "img_url":"/Horoscope/react-front-end/public/pisces.jpeg",
+      "description":"this is Pisces description!!"},
+  "5":
+    {"name": "Aries",
+      "img_url":"/Horoscope/react-front-end/public/aquarius.jpeg",
+      "description":"this is Aries description!!"},
+  "6":
+    {"name": "Taurus",
+      "img_url":"/Horoscope/react-front-end/public/aries.jpeg",
+      "description":"this is Taurus description!!"},
+  "7":
+    {"name": "Gemini",
+      "img_url":"/Horoscope/react-front-end/public/gemini.jpeg",
+      "description":"this is Gemini description!!"},
+  "8":
+    {"name": "Cancer",
+      "img_url":"/Horoscope/react-front-end/public/cancer.jpeg",
+      "description":"this is Cancer description!!"},
+  "9":
+    {"name": "Leo",
+      "img_url":"/Horoscope/react-front-end/public/leo.jpeg",
+      "description":"this is Leo description!!"},
+  "10":
+    {"name": "Virgo",
+      "img_url":"/Horoscope/react-front-end/public/virgo.jpeg",
+      "description":"this is Virgo description!!"},
+  "11":
+    {"name": "Libra",
+      "img_url":"/Horoscope/react-front-end/public/libra.jpeg",
+      "description":"this is description!!"},
+  "12":
+    {"name": "Scorpio",
+      "img_url":"/Horoscope/react-front-end/public/scorpio.jpeg",
+      "description":"this is Scorpio description!!"}
+}
