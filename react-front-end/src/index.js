@@ -9,7 +9,7 @@ import {
   Footer,
   Home,
   Cart,
-  Market,
+  Shop,
   Orders,
 } from "./components";
 
@@ -19,7 +19,7 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/market" element={<Market />} />
+      <Route path="/shop" element={<Shop />} />
       <Route path="/orders" element={<Orders />} />
     </Routes>
     <Footer />

@@ -1,8 +1,8 @@
 import React from "react";
 
-function Market() {
+function Shop() {
   return (
-    <div className="market">
+    <div className="shop">
       <div class="container">
         <div class="row align-items-center my-5">
           <div class="col-lg-7">
@@ -27,4 +27,4 @@ function Market() {
   );
 }
 
-export default Market;
+export default Shop;

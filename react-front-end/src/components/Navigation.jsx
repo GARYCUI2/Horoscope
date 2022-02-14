@@ -18,8 +18,8 @@ function Navigation() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/market">
-                Market
+                <NavLink className="nav-link" to="/shop">
+                Shop
                 </NavLink>
               </li>
               <li className="nav-item">
