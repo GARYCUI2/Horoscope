@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Routes, Route, useParams } from "react-router-dom";
 import axios from 'axios';
+import Button from './Button';
 
 function Product() {
   const params = useParams();
@@ -8,13 +9,13 @@ function Product() {
   useEffect(() => {
     axios.get(`/api/products/${params.id}`)
     .then((item) => {
-      console.log(item.data);
+      // console.log(item.data);
       setItem(item.data[`${params.id}`]);
     });
   },[]);
 
   if (!item) return null;
-  console.log(item);
+  // console.log(item);
 
   return (
     <div className="shop">
@@ -29,9 +30,9 @@ function Product() {
           />
         </div>
         <div className="col-lg-5">
-          <h1 className="font-weight-light" >
+          <h3 className="font-weight-light" >
             {item.name}
-            </h1>
+            </h3>
           <p >
           Price:{item.price}
           </p>
@@ -41,9 +42,11 @@ function Product() {
           <p >
           Description:{item.description}
           </p>
-          <p onClick={()=>{'Click me'}}>
-          Add To Cart
-          </p>
+          <section className="appointment__card-right">
+        <section className="appointment__actions">
+          <Button confirm onClick={`validate`}>Add To Cart</Button>
+        </section>
+        </section>
         </div>
         </React.Fragment>
       </div>

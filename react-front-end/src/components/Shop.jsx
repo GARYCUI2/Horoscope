@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import './shop.css'
+import Button from './Button';
 
 function Shop() {
 
@@ -33,15 +34,20 @@ const array = Object.values(items);
           />
         </div>
         <div className="col-lg-5">
-          <h1 className="font-weight-light" >
+          <h3 className="font-weight-light" >
             <Link to = {`/shop/${item.id}`}>{item.name}</Link>
-            </h1>
+            </h3>
           <p >
           Price:{item.price}
           </p>
-          <p onClick={()=>{'Click me'}}>
-          Add To Cart
+          <p >
+          Quantity:{item.quantity}
           </p>
+          <section className="appointment__card-right">
+        <section className="appointment__actions">
+          <Button confirm onClick={`validate`}>Add To Cart</Button>
+        </section>
+        </section>
         </div>
         </React.Fragment>
         ))}
