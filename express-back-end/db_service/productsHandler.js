@@ -20,6 +20,16 @@ const getProductsBySign = function(db) {
     // .catch(console.error("error running in get all horoscope!!!!"))
 };
 
+const getProductsById = function(db) {
+  // let quertString = `SELECT * FROM astrologies`;
+  const productsPath = '../json/productById.json';
+  return Promise.resolve(getJsonData(productsPath));
+    //db;
+    // .query(quertString)
+    // .then(res => res.row[0])
+    // .catch(console.error("error running in get all horoscope!!!!"))
+};
+
 const editProductsBySign = function(db) {
   // let quertString = `SELECT * FROM astrologies`;
   const productsPath = '../json/recommend-product.json';
@@ -32,5 +42,7 @@ const editProductsBySign = function(db) {
 
 module.exports = {
   getAllProducts,
-  getProductsBySign
+  getProductsBySign,
+  getProductsById,
+  editProductsBySign
 }

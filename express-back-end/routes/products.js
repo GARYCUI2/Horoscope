@@ -16,10 +16,10 @@ module.exports = (db) => {
     })
   })
 
-  router.get("/:sign", 
+  router.get("/:id", 
   (req,res) => {
-    let sign = req.params.sign;
-    productsHelper.getProductsBySign(db)
+    let sign = req.params.id;
+    productsHelper.getProductsById(db)
     .then(dbRes => {
       res.send(dbRes);
     })
