@@ -11,7 +11,10 @@ import {
   Cart,
   Shop,
   Orders,
+
 } from "./components";
+
+import Product from "./components/Product";
 
 ReactDOM.render(
   <Router>
@@ -20,6 +23,7 @@ ReactDOM.render(
       <Route path="/" element={<Home />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/shop" element={<Shop />} />
+      <Route path="/shop/:id" element={<Product />} />
       <Route path="/orders" element={<Orders />} />
     </Routes>
     <Footer />
