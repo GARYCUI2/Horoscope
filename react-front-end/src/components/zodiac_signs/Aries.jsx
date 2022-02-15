@@ -4,12 +4,13 @@ function Aries() {
   return (
     <div>
     <img 
+    className="img-fluid rounded mb-12 img-responsive text center"
     src="/aries.jpeg"
     alt="Aries Symbol"
-    height="500"
-    width="700"
+    height="400"
+    width="600"
     />
-    <p>This is the Aries Sign</p>
+    <p className='text-center'>This is the Aries Sign</p>
     </div>
   )
 }
