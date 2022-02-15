@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import './shop.css'
 
 function Shop() {
 
@@ -23,20 +24,20 @@ console.log(array)
     <div className="container" >
       <div className="row align-items-center my-5">
         {array.map(item => (
-         <React.Fragment key = {item.itemId}>
+         <React.Fragment key = {item.name}>
           <div className="col-lg-7">
           <img
             className="img-fluid rounded mb-4 mb-lg-0"
-            src={item.item.images.background}
+            src={item.img_url}
             alt=""
           />
         </div>
         <div className="col-lg-5">
           <h1 className="font-weight-light" >
-            <Link to = {`/shop/${item.itemId}`}>{item.item.name}</Link>
+            <Link to = {`/shop/${item.name}`}>{item.name}</Link>
             </h1>
           <p >
-          Price:{item.item.ratings.totalPoints}
+          Price:{item.price}
           </p>
           <p onClick={()=>{'Click me'}}>
           Add To Cart
