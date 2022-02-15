@@ -9,8 +9,14 @@ App.use(BodyParser.json());
 App.use(Express.static('public'));
 
 const horoscopeRoutes = require("./routes/horoscope");
-
 App.use("/api/horoscope", horoscopeRoutes());
+
+const productRoutes = require("./routes/products");
+App.use("/api/products", productRoutes());
+
+
+
+
 
 // Sample GET route
 App.get('/api/data', (req, res) => res.json({
