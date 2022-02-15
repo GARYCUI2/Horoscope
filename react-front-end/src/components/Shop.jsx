@@ -1,29 +1,28 @@
 import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 function Shop() {
+
+  const [items, setItems] = useState();
+
   useEffect(() => {
-    fetchItems();
-  },[])
+    axios.get(`/api/products`)
+        .then((items) => {
+          setItems(items.data);
+        });
+  },[]);
 
-  const [items, setItems] = useState([]);
+  if (!items) return null;
 
-  const fetchItems = async () => {
-    const data = await fetch (
-      'https://fortnite-api.theapinetwork.com/upcoming/get'
-      );
-
-    const items = await data.json();
-    console.log(items.data);
-    console.log(items.data[0].itemId)
-    setItems(items.data);
-  }
-
+const array = Object.values(items);
+console.log(items)
+console.log(array)
   return (
     <div className="shop">
     <div className="container" >
       <div className="row align-items-center my-5">
-        {items.map(item => (
+        {array.map(item => (
          <React.Fragment key = {item.itemId}>
           <div className="col-lg-7">
           <img

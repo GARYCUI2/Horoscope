@@ -1,27 +1,27 @@
 import React, {useState, useEffect} from "react";
+import { Routes, Route, useParams } from "react-router-dom";
 
-function Product({match}) {
+function Product() {
+  const params = useParams();
   useEffect(() => {
     fetchItem();
-    console.log({match})
-  },[])
+  },[]);
 
-  const [item, setItem] = useState({
-    images:{}
-  });
+  const [item, setItem] = useState({});
 
   const fetchItem = async () => {
-    const fetchItem = await fetch(`https://fortnite-api.theapinetwork.com/item/get?id=${match}`);
-    const item = await fetchItem.json();
-    setItem(item);
-    console.log(item);
+    const data = await fetch(`https://fortnite-api.theapinetwork.com/item/get?id=${params.id}`);
+    const item = await data.json();
+    // console.log(item.data);
+    setItem(item.data.item);
   }
+  console.log(item.images);
 
   return (
     <div className="shop">
     <div className="container" >
       <div className="row align-items-center my-5">
-         <React.Fragment key = {item.itemId}>
+         <React.Fragment key = {1}>
           <div className="col-lg-7">
           <img
             className="img-fluid rounded mb-4 mb-lg-0"
@@ -34,7 +34,7 @@ function Product({match}) {
             {item.name}
             </h1>
           <p >
-          Price:{item.ratings}
+          Price:
           </p>
           <p onClick={()=>{'Click me'}}>
           Add To Cart
