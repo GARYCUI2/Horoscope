@@ -1,20 +1,23 @@
 {"recommend for aries":[
   {"1":
-    {"name": "Amethyst",
+    { "id":"3",
+      "name": "Amethyst",
       "price":20,
       "img_url":"https://i.imgur.com/2NdV4R5.jpeg",
       "quantity":10,
       "description":"A gorgeous purple crystal to help develop your intuition and aid in meditation calmness."
     }},
   {"2":
-    {"name": "Contraluz Opal",
+    { "id":"3",
+      "name": "Contraluz Opal",
       "price":35,
       "img_url":"https://i.imgur.com/1WEn8cv.jpeg",
       "quantity":3,
       "description":"A multicoloured crystal that can help with creativity and balancing mood"
     }},
   {"3":
-    {"name": "Smoky Citrine",
+    { "id":"3",
+      "name": "Smoky Citrine",
       "price":15,
       "img_url":"https://imgur.com/6h203Yp",
       "quantity":15,
