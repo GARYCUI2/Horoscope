@@ -2,16 +2,16 @@
   "1": 
     {
       "id":"1",
-      "category_name":"success"
+      "category_name":"Crystals"
     },
     "2": 
     {
       "id":"2",
-      "category_name":"shipping"
+      "category_name":"Tarot Cards"
     },
     "3": 
     {
       "id":"3",
-      "category_name":"cancel"
+      "category_name":"Books"
     }
 }
