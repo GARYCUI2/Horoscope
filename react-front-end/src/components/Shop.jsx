@@ -5,7 +5,7 @@ import './shop.css'
 
 function Shop() {
 
-  const [items, setItems] = useState();
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     axios.get(`/api/products`)
@@ -17,8 +17,8 @@ function Shop() {
   if (!items) return null;
 
 const array = Object.values(items);
-console.log(items)
-console.log(array)
+// console.log(items)
+// console.log(array)
   return (
     <div className="shop">
     <div className="container" >
