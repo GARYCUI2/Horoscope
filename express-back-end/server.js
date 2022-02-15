@@ -14,6 +14,8 @@ App.use("/api/horoscope", horoscopeRoutes());
 const productRoutes = require("./routes/products");
 App.use("/api/products", productRoutes());
 
+const categoryRoutes = require("./routes/categories");
+App.use("/api/categories", categoryRoutes());
 
 
 
