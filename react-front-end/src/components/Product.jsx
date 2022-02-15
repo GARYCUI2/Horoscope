@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from "react";
-import { Routes, Route, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 import Button from './Button';
 
-function Product() {
+function Product(props) {
   const params = useParams();
   const [item, setItem] = useState({});
+  const { cartItems, onAdd} = props;
+
   useEffect(() => {
     axios.get(`/api/products/${params.id}`)
     .then((item) => {
@@ -26,7 +28,7 @@ function Product() {
           <img
             className="img-fluid rounded mb-4 mb-lg-0"
             src={item.img_url}
-            alt=""
+            alt={item.name}
           />
         </div>
         <div className="col-lg-5">
@@ -44,7 +46,7 @@ function Product() {
           </p>
           <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button confirm onClick={`validate`}>Add To Cart</Button>
+          <Button confirm onClick={onAdd}>Add To Cart</Button>
         </section>
         </section>
         </div>
