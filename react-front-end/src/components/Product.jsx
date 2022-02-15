@@ -1,20 +1,19 @@
 import React, {useState, useEffect} from "react";
 import { Routes, Route, useParams } from "react-router-dom";
+import axios from 'axios';
 
 function Product() {
   const params = useParams();
-  useEffect(() => {
-    fetchItem();
-  },[]);
-
   const [item, setItem] = useState({});
 
-  const fetchItem = async () => {
-    const data = await fetch(`https://fortnite-api.theapinetwork.com/item/get?id=${params.id}`);
-    const item = await data.json();
-    // console.log(item.data);
-    setItem(item.data.item);
-  }
+  useEffect(() => {
+    axios.get(`/api/products/${params.id}`)
+    .then((item) => {
+      setItem(item.data);
+    });
+  },[]);
+
+  if (!item) return null;
   console.log(item.images);
 
   return (
