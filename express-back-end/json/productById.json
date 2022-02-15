@@ -1,0 +1,10 @@
+{ 
+  "1":
+    { "id":"1",
+      "name": "Amethyst",
+      "price":20,
+      "img_url":"https://i.imgur.com/2NdV4R5.jpeg",
+      "quantity":10,
+      "description":"A gorgeous purple crystal to help develop your intuition and aid in meditation calmness."
+    }
+}
