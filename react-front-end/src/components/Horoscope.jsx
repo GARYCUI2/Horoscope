@@ -1,26 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function Aquarius() {
-  const [state, setState] = useState({});
+function Horoscope() {
+    const [state, setState] = useState({});
 
-  const URL = `https://aztro.sameerkumar.website/?sign=aquarius&day=today`;
-  useEffect(() => {
-      axios.post(URL)
-          .then((res) => {
-              setState(res.data)
-          })
-  }, []);
-
+    const URL = `https://aztro.sameerkumar.website/?sign=aries&day=today`;
+    useEffect(() => {
+        axios.post(URL)
+            .then((res) => {
+                setState(res.data)
+            })
+    }, []);
+    
+    
   return (
-    <div>
-    <img 
-    className="img-fluid rounded mb-12 img-responsive text center"
-    src="/aquarius.jpeg"
-    alt="Aquarius Symbol"
-    height="400"
-    width="600"
-    />
     <div>
         Current Date: {state.current_date} <br />
         Compatibility: {state.compatibility} <br />
@@ -33,10 +26,7 @@ function Aquarius() {
         <br />
         <p>Double click to view other signs!</p>
     </div>
-    </div>
-    
   )
 }
 
-export default Aquarius
-
+export default Horoscope;
