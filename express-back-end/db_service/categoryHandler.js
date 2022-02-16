@@ -1,33 +1,36 @@
 const { getJsonData } = require('./dataController') 
 
 const getAllCategorier = function(db) {
-  // let quertString = `SELECT * FROM astrologies`;
+ const quertString = `SELECT * FROM category;`;
   const categoriesPath = '../json/categories.json';
-  return Promise.resolve(getJsonData(categoriesPath));
-    //db;
-    // .query(quertString)
-    // .then(res => res.row[0])
-    // .catch(console.error("error running in get all horoscope!!!!"))
+  // return Promise.resolve(getJsonData(categoriesPath));
+  return db
+    .query(quertString)
+    .then(res => res.rows)
+    .catch(console.error("error running in get all category!!!!"))
 };
 
 const deleteCategoryByid = function(db,deleteCategory) {
-  // let quertString = `SELECT * FROM astrologies`;
-  const categoriesPath = '../json/deleteCategories.json';
-  return Promise.resolve(getJsonData(categoriesPath));
-    //db;
-    // .query(quertString)
-    // .then(res => res.row[0])
-    // .catch(console.error("error running in get all horoscope!!!!"))
+  const deleteValue = [deleteCategory]
+  const quertString = `DELETE FROM category WHERE id = $1;`;
+  //const categoriesPath = '../json/deleteCategories.json';
+  //return Promise.resolve(getJsonData(categoriesPath));
+  return db
+    .query(quertString,deleteValue)
+    .then(res => res.rows)
+    .catch(console.error("error running in get category by id!!!!"))
 };
 
 const editCategoryByid = function(db,newCategory) {
-  // let quertString = `SELECT * FROM astrologies`;
-  const categoriesPath = '../json/editedCategories.json';
-  return Promise.resolve(getJsonData(categoriesPath));
-    //db;
-    // .query(quertString)
-    // .then(res => res.row[0])
-    // .catch(console.error("error running in get all horoscope!!!!"))
+  const newValue = [newCategory.category_name,newCategory.id]
+  const quertString = `UPDATE category SET category_name = $1 WHERE category.id = $2 
+  RETURNING *`;
+  //const categoriesPath = '../json/editedCategories.json';
+  //return Promise.resolve(getJsonData(categoriesPath));
+  return db
+    .query(quertString,newValue)
+    .then(res => res.rows)
+    .catch(console.error("error running in edit category!!!!"))
 };
 
 module.exports = {
