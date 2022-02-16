@@ -1,6 +1,5 @@
 import React from "react";
 import './shop.css'
-import Button from './Button';
 
 function Shop(props) {
   const {items, onAdd} = props;
@@ -31,7 +30,7 @@ const array = Object.values(items);
               </p>
             <section className="shop">
           <section className="add_to_cart">
-            <Button confirm onClick={() => onAdd(item)}>Add To Cart</Button>
+            <button onClick={() => onAdd(item)}>Add To Cart</button>
           </section>
           </section>
           </div>

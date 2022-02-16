@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-import Button from './Button';
 
 function Product(props) {
   const params = useParams();
@@ -46,7 +45,7 @@ function Product(props) {
           </p>
           <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button confirm onClick={() => onAdd(item)}>Add To Cart</Button>
+          <button confirm onClick={() => onAdd(item)}>Add To Cart</button>
         </section>
         </section>
         </div>
