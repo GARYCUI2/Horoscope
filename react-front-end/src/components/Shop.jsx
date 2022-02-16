@@ -1,42 +1,11 @@
-import React, {useState, useEffect} from "react";
-import {Link} from 'react-router-dom';
-import axios from 'axios';
+import React from "react";
 import './shop.css'
 import Button from './Button';
-import { Cart } from ".";
 
 function Shop(props) {
-
-  const [items, setItems] = useState([]);
-
-
-const [cartItems, setCartItems] = useState([]);
-const onAdd = (product) => {
-  const exist = cartItems.find ( x => x.id === product.id );
-  if (exist) {
-    setCartItems(cartItems.map((x) =>
-    x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-    ))
-  }else {
-    setCartItems([...cartItems, { ...product, qty: 1 }]);
-  }
-};
-
-  console.log(cartItems);
-  
-
-  useEffect(() => {
-    axios.get(`/api/products`)
-        .then((items) => {
-          setItems(items.data);
-        });
-  },[]);
-
+  const {items, onAdd} = props;
   if (!items) return null;
-
 const array = Object.values(items);
-// console.log(items)
-// console.log(array)
   return (
     <div className="shop">
       <div className="container" >
@@ -52,7 +21,7 @@ const array = Object.values(items);
           </div>
           <div className="col-lg-5">
             <h3 className="font-weight-light" >
-              <Link to = {`/shop/${item.id}`}>{item.name}</Link>
+              {item.name}
               </h3>
               <p >
               Price:{item.price}

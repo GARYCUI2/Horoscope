@@ -24,12 +24,22 @@ function Navigation(props) {
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/cart">
-                Cart
+                Cart{' '}
+                  {props.countCartItems ? (
+                    <button className="badge">{props.countCartItems}</button>
+                  ) : (
+                    ''
+                  )}
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/orders">
                 Orders
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/admin">
+                Admin
                 </NavLink>
               </li>
             </ul>

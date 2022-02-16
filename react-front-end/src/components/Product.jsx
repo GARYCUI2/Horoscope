@@ -6,7 +6,7 @@ import Button from './Button';
 function Product(props) {
   const params = useParams();
   const [item, setItem] = useState({});
-  const { cartItems, onAdd} = props;
+  const {onAdd} = props;
 
   useEffect(() => {
     axios.get(`/api/products/${params.id}`)
