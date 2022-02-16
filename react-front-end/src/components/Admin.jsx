@@ -1,6 +1,6 @@
 import React from "react";
 
-function Cart(props) {
+function Admin(props) {
 
   // const {cartItems, onAdd} = props;
   // console.log(cartItems);
@@ -16,7 +16,7 @@ function Cart(props) {
             />
           </div>
           <div class="col-lg-5">
-            <h1 class="font-weight-light">Cart</h1>
+            <h1 class="font-weight-light">Admin</h1>
             {/* <div>{cartItems.length === 0 && <div>Cart is empty</div>}</div> */}
           </div>
         </div>
@@ -25,4 +25,4 @@ function Cart(props) {
   );
 }
 
-export default Cart;
+export default Admin;
