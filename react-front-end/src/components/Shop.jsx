@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './shop.css'
 
 function Shop(props) {
@@ -19,11 +20,11 @@ const array = Object.values(items);
             />
           </div>
           <div className="col-lg-5">
-            <h3 className="font-weight-light" >
-              {item.name}
-              </h3>
+            <h2 className="font-weight-light" >
+            <Link to={`/shop/${item.id}`}>{item.name}</Link>
+              </h2>
               <p >
-              Price:{item.price}
+              Price:${Number(item.price).toFixed(2)}
               </p>
               <p >
               Quantity:{item.quantity}

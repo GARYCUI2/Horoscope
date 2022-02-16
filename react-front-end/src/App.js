@@ -51,7 +51,6 @@ const onRemove = (product) => {
         });
   },[]);
 
-  console.log(cartItems);
   
     return (
       <Router>

@@ -6,17 +6,18 @@ function Product(props) {
   const params = useParams();
   const [item, setItem] = useState({});
   const {onAdd} = props;
+  // console.log(params.id);
 
   useEffect(() => {
     axios.get(`/api/products/${params.id}`)
     .then((item) => {
       // console.log(item.data);
-      setItem(item.data[`${params.id}`]);
+      setItem(item.data[0]);
     });
   },[]);
-
+//  console.log(item);
   if (!item) return null;
-  // console.log(item);
+ 
 
   return (
     <div className="shop">
@@ -31,11 +32,11 @@ function Product(props) {
           />
         </div>
         <div className="col-lg-5">
-          <h3 className="font-weight-light" >
+          <h2 className="font-weight-light" >
             {item.name}
-            </h3>
+            </h2>
           <p >
-          Price:{item.price}
+          Price: ${Number(item.price).toFixed(2)}
           </p>
           <p >
           Quantity:{item.quantity}
@@ -45,7 +46,7 @@ function Product(props) {
           </p>
           <section className="appointment__card-right">
         <section className="appointment__actions">
-          <button confirm onClick={() => onAdd(item)}>Add To Cart</button>
+          <button onClick={() => onAdd(item)}>Add To Cart</button>
         </section>
         </section>
         </div>
