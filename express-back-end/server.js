@@ -1,7 +1,17 @@
+// load .env data into process.env
+require("dotenv").config();
+
 const Express = require('express');
 const App = Express();
 const BodyParser = require('body-parser');
 const PORT = 8080;
+const morgan = require("morgan");
+
+// PG database client/connection setup
+const { Pool } = require("pg");
+const dbParams = require("./lib/db.js");
+const db = new Pool(dbParams);
+db.connect();
 
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: true }));
