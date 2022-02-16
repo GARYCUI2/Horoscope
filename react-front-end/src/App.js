@@ -1,38 +1,74 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect,Component} from "react";
 import axios from 'axios';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  Navigation,
+  Footer,
+  Home,
+  Admin,
+  Shop,
+  Orders,
+  Cart,
+  Product,
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      message: 'Click the button to load data!'
-    }
+} from "./components";
+
+const App = () =>{
+
+  const [items, setItems] = useState([]);
+
+
+const [cartItems, setCartItems] = useState([]);
+const onAdd = (product) => {
+  const exist = cartItems.find ( x => x.id === product.id );
+  console.log(exist);
+  if (exist) {
+    setCartItems(cartItems.map((x) =>
+    x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+    ))
+  }else {
+    setCartItems([...cartItems, { ...product, qty: 1 }]);
   }
+};
 
-  fetchData = () => {
-    axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
-    .then((response) => {
-      // handle success
-      console.log(response.data) // The entire response from the Rails API
-
-      console.log(response.data.message) // Just the message
-      this.setState({
-        message: response.data.message
-      });
-    }) 
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <h1>{ this.state.message }</h1>
-        <button onClick={this.fetchData} >
-          Fetch Data
-        </button>        
-      </div>
+const onRemove = (product) => {
+  const exist = cartItems.find((x) => x.id === product.id);
+  if (exist.qty === 1) {
+    setCartItems(cartItems.filter((x) => x.id !== product.id));
+  } else {
+    setCartItems(
+      cartItems.map((x) =>
+        x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+      )
     );
   }
-}
+};
+  
+  useEffect(() => {
+    axios.get(`/api/products`)
+        .then((items) => {
+          setItems(items.data);
+        });
+  },[]);
+
+  // console.log(cartItems.length);
+  
+    return (
+      <Router>
+      <Navigation countCartItems={cartItems.length}/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/shop" element={<Shop items={items} cartItems={cartItems} onAdd={onAdd}/>} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} onRemove={onRemove}/>} />
+        <Route path="/shop/:id" element={<Product onAdd={onAdd}/>} />
+        <Route path="/orders" element={<Orders />} />
+      </Routes>
+      <Footer />
+    </Router>
+    );
+  }
+
 
 export default App;
