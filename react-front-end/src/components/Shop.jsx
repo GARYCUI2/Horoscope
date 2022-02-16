@@ -31,7 +31,7 @@ const array = Object.values(items);
               </p>
             <section className="shop">
           <section className="add_to_cart">
-            <Button confirm onClick={onAdd}>Add To Cart</Button>
+            <Button confirm onClick={() => onAdd(item)}>Add To Cart</Button>
           </section>
           </section>
           </div>

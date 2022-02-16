@@ -46,7 +46,7 @@ function Product(props) {
           </p>
           <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button confirm onClick={onAdd}>Add To Cart</Button>
+          <Button confirm onClick={() => onAdd(item)}>Add To Cart</Button>
         </section>
         </section>
         </div>
