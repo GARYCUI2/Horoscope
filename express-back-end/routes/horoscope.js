@@ -19,7 +19,7 @@ module.exports = (db) => {
 
   router.get("/:sign", 
   (req,res) => {
-    let sign = req.params.sign;
+    const sign = req.params.sign;
     const URL = `https://aztro.sameerkumar.website/?sign=${sign}&day=today`
 
     axios.post(URL)

@@ -19,13 +19,13 @@ App.use(BodyParser.json());
 App.use(Express.static('public'));
 
 const horoscopeRoutes = require("./routes/horoscope");
-App.use("/api/horoscope", horoscopeRoutes());
+App.use("/api/horoscope", horoscopeRoutes(db));
 
 const productRoutes = require("./routes/products");
-App.use("/api/products", productRoutes());
+App.use("/api/products", productRoutes(db));
 
 const categoryRoutes = require("./routes/categories");
-App.use("/api/categories", categoryRoutes());
+App.use("/api/categories", categoryRoutes(db));
 
 
 
