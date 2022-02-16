@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS astrologies;
-DROP TABLE IF EXISTS products;
-DROP TABLE IF EXISTS category;
-DROP TABLE IF EXISTS order_items;
-DROP TABLE IF EXISTS orders;
-DROP TABLE IF EXISTS recommend;
+DROP TABLE IF EXISTS astrologies CASCADE;
+DROP TABLE IF EXISTS products CASCADE;
+DROP TABLE IF EXISTS category CASCADE;
+DROP TABLE IF EXISTS order_items CASCADE;
+DROP TABLE IF EXISTS orders CASCADE;
+DROP TABLE IF EXISTS recommend CASCADE;
 
 CREATE TABLE astrologies(
   id SERIAL PRIMARY KEY NOT NULL,
@@ -12,27 +12,20 @@ CREATE TABLE astrologies(
   description varchar(225)
 );
 
-CREATE TABLE products(
-  id SERIAL PRIMARY KEY NOT NULL,
-  name varchar(225) NOT NULL,
-  description TEXT,
-  category varchar(10) NOT NULL REFERENCES category(id),
-  price DECIMAL NOT NULL,
-  img_url varchar(225) NOT NULL,
-  quantity INTEGER,
-  created_at TIMESTAMP
-);
-
 CREATE TABLE category(
   id SERIAL PRIMARY KEY NOT NULL,
   category_name varchar(225) NOT NULL
 );
 
-CREATE TABLE order_items(
+CREATE TABLE products(
   id SERIAL PRIMARY KEY NOT NULL,
-  order_id varchar(225) NOT NULL REFERENCES orders(id),
-  product_id INTEGER REFERENCES products(id)  ON DELETE CASCADE,
-  quantity INTEGER
+  name varchar(225) NOT NULL,
+  description varchar(225),
+  category INTEGER REFERENCES category(id),
+  price DECIMAL NOT NULL,
+  img_url varchar(400) NOT NULL,
+  quantity INTEGER,
+  created_at TIMESTAMP
 );
 
 CREATE TABLE orders(
@@ -45,8 +38,15 @@ CREATE TABLE orders(
   created_at TIMESTAMP
 );
 
+CREATE TABLE order_items(
+  id SERIAL PRIMARY KEY NOT NULL,
+  order_id varchar(20) REFERENCES orders(id),
+  product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
+  quantity INTEGER
+);
+
 CREATE TABLE recommend(
   id SERIAL PRIMARY KEY NOT NULL,
   astrology_id INTEGER REFERENCES astrologies(id) ON DELETE CASCADE,
-  product_id INTEGER REFERENCES products(id)  ON DELETE CASCADE,
+  product_id INTEGER REFERENCES products(id) ON DELETE CASCADE
 );
