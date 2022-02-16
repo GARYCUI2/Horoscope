@@ -21,7 +21,7 @@ CREATE TABLE products(
   id SERIAL PRIMARY KEY NOT NULL,
   name varchar(225) NOT NULL,
   description varchar(225),
-  category INTEGER REFERENCES category(id),
+  category_id INTEGER REFERENCES category(id) ON DELETE CASCADE,
   price DECIMAL NOT NULL,
   img_url varchar(400) NOT NULL,
   quantity INTEGER,
