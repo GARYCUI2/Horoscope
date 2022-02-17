@@ -24,10 +24,10 @@ const array = Object.values(items);
             <Link to={`/shop/${item.id}`}>{item.name}</Link>
               </h2>
               <p >
-              Price:${Number(item.price).toFixed(2)}
+              ${Number(item.price).toFixed(2)}
               </p>
               <p >
-              Quantity:{item.quantity}
+              Only {item.quantity} left in stock
               </p>
             <section className="shop">
           <section className="add_to_cart">

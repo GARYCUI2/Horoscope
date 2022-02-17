@@ -1,5 +1,7 @@
 import React from "react";
+import axios from 'axios';
 import './cart.css'
+import StripeCheckout from "react-stripe-checkout";
 
 function Cart(props) {
 
@@ -8,6 +10,24 @@ function Cart(props) {
   const taxPrice = itemsPrice * 0.14;
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
   const totalPrice = itemsPrice + taxPrice + shippingPrice;
+  const makePayment = token => {
+    const body = {
+      token,
+      cartItems,
+      totalPrice
+    }
+
+    return axios.post(`/api/payment`,{
+      body:JSON.stringfy(body)
+    }).then(res=>{
+      console.log('RESPONSE',res);
+      const {status} = res;
+      console.log('status',status)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
   return (
     <aside className="block col-1">
     <h2>Cart Items</h2>
@@ -64,13 +84,25 @@ function Cart(props) {
           </div>
           <hr />
           <div className="row">
-            <button onClick={() => alert('Implement Checkout!')}>
-              Checkout
-            </button>
+              <StripeCheckout 
+            stripeKey={process.env.REACT_APP_KEY}
+            token={makePayment} 
+            name=""
+            amount={totalPrice * 100}
+            shippingAddress
+            billingAddress
+            >
+              <button className="btn-large-blue">Checkout</button>
+          </StripeCheckout>   
           </div>
         </>
       )}
     </div>
+
+
+ 
+
+      
   </aside>
   );
 }

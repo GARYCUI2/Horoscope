@@ -36,10 +36,10 @@ function Product(props) {
             {item.name}
             </h2>
           <p >
-          Price: ${Number(item.price).toFixed(2)}
+          ${Number(item.price).toFixed(2)}
           </p>
           <p >
-          Quantity:{item.quantity}
+          Only {item.quantity} left in stock
           </p>
           <p >
           Description:{item.description}
