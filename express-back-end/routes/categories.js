@@ -19,8 +19,13 @@ module.exports = (db) => {
 
   router.post("/", 
   (req,res) => {
-    const newCategory = req.body.newCategory;
-   
+    const id = req.body.id;
+    const category_name = req.body.category_name;
+    
+    const newCategory = {
+      id,
+      category_name
+    };
     categoryHelper.editCategoryByid(db, newCategory)
     .then(dbRes => {
       res.send(dbRes);
@@ -33,7 +38,6 @@ module.exports = (db) => {
 
   router.delete("/", 
   (req,res) => {
-   
     const deleteCategory = req.body.deleteCategory;
     categoryHelper.deleteCategoryByid(db,deleteCategory)
     .then(dbRes => {

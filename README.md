@@ -26,6 +26,8 @@ In the other terminal, `cd` into `express-back-end`. Run `npm install` or `yarn`
 
 In the browser, you can click on the button and see the data get loaded.
 
+In the other terminal, launch psql database, then run `CREATE ROLE lighthouse WITH LOGIN password 'llighthouse';`. Then run `CREATE DATABASE horoscope OWNER lighthouse;`. Finally, run `npm run db:reset` in the terminal which you run `npm install` before.
+
 If this doesn't work, please message me!
 
 ## Next steps

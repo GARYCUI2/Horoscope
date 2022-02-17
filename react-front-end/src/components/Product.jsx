@@ -1,23 +1,23 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-import Button from './Button';
 
 function Product(props) {
   const params = useParams();
   const [item, setItem] = useState({});
   const {onAdd} = props;
+  // console.log(params.id);
 
   useEffect(() => {
     axios.get(`/api/products/${params.id}`)
     .then((item) => {
       // console.log(item.data);
-      setItem(item.data[`${params.id}`]);
+      setItem(item.data[0]);
     });
   },[]);
-
+//  console.log(item);
   if (!item) return null;
-  // console.log(item);
+ 
 
   return (
     <div className="shop">
@@ -32,21 +32,21 @@ function Product(props) {
           />
         </div>
         <div className="col-lg-5">
-          <h3 className="font-weight-light" >
+          <h2 className="font-weight-light" >
             {item.name}
-            </h3>
+            </h2>
           <p >
-          Price:{item.price}
+          ${Number(item.price).toFixed(2)}
           </p>
           <p >
-          Quantity:{item.quantity}
+          Only {item.quantity} left in stock
           </p>
           <p >
           Description:{item.description}
           </p>
           <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button confirm onClick={() => onAdd(item)}>Add To Cart</Button>
+          <button onClick={() => onAdd(item)}>Add To Cart</button>
         </section>
         </section>
         </div>
