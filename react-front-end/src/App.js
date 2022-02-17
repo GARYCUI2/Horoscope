@@ -1,7 +1,8 @@
-import React, {useState, useEffect,Component} from "react";
+import React, {useState, useEffect} from "react";
 import axios from 'axios';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import {
   Navigation,
   Footer,
@@ -11,7 +12,6 @@ import {
   Orders,
   Cart,
   Product,
-
 } from "./components";
 
 const App = () =>{
@@ -22,7 +22,6 @@ const App = () =>{
 const [cartItems, setCartItems] = useState([]);
 const onAdd = (product) => {
   const exist = cartItems.find ( x => x.id === product.id );
-  console.log(exist);
   if (exist) {
     setCartItems(cartItems.map((x) =>
     x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
@@ -52,7 +51,6 @@ const onRemove = (product) => {
         });
   },[]);
 
-  // console.log(cartItems.length);
   
     return (
       <Router>
@@ -61,7 +59,7 @@ const onRemove = (product) => {
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/shop" element={<Shop items={items} cartItems={cartItems} onAdd={onAdd}/>} />
-        <Route path="/cart" element={<Cart cartItems={cartItems} onRemove={onRemove}/>} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} onRemove={onRemove} onAdd={onAdd}/>} />
         <Route path="/shop/:id" element={<Product onAdd={onAdd}/>} />
         <Route path="/orders" element={<Orders />} />
       </Routes>
