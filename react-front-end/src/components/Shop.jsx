@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './shop.css'
-import Button from './Button';
 
 function Shop(props) {
   const {items, onAdd} = props;
@@ -20,18 +20,18 @@ const array = Object.values(items);
             />
           </div>
           <div className="col-lg-5">
-            <h3 className="font-weight-light" >
-              {item.name}
-              </h3>
+            <h2 className="font-weight-light" >
+            <Link to={`/shop/${item.id}`}>{item.name}</Link>
+              </h2>
               <p >
-              Price:{item.price}
+              ${Number(item.price).toFixed(2)}
               </p>
               <p >
-              Quantity:{item.quantity}
+              Only {item.quantity} left in stock
               </p>
             <section className="shop">
           <section className="add_to_cart">
-            <Button confirm onClick={() => onAdd(item)}>Add To Cart</Button>
+            <button onClick={() => onAdd(item)}>Add To Cart</button>
           </section>
           </section>
           </div>
