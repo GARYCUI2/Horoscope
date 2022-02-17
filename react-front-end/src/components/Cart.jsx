@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import './cart.css'
 import StripeCheckout from "react-stripe-checkout";
+import 'dotenv/config' 
 
 function Cart(props) {
 
@@ -18,7 +19,7 @@ function Cart(props) {
     }
 
     return axios.post(`/api/payment`,{
-      body:JSON.stringfy(body)
+      body:JSON.stringify(body)
     }).then(res=>{
       console.log('RESPONSE',res);
       const {status} = res;
@@ -85,7 +86,7 @@ function Cart(props) {
           <hr />
           <div className="row">
               <StripeCheckout 
-            stripeKey={process.env.REACT_APP_KEY}
+            stripeKey='pk_test_51KOlmmKJmeHNxH00PDndFuulzugzXpK7oc96KzYmCJKY5D6lLmLv2DL0QQB1jWqXM4o8vNKZwMxYGU7AmGEvQLtd004APTZ0W2'
             token={makePayment} 
             name=""
             amount={totalPrice * 100}
