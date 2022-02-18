@@ -5,7 +5,7 @@ insert into products( name, price, category_id, img_url, quantity, description )
 values ('Contraluz Opal', 35, 1, 'https://i.imgur.com/1WEn8cv.jpeg', 3, 'A multicoloured crystal that can help with creativity and balancing mood');
 
 insert into products( name, price, category_id, img_url, quantity, description ) 
-values ('Smoky Citrine', 15, 1, 'https://imgur.com/6h203Yp', 15, 'A unique, golden yellow crystal to help bring you abundance, success, and greater.');
+values ('Smoky Citrine', 15, 1, 'https://i.imgur.com/frwu0ka.jpeg', 15, 'A unique, golden yellow crystal to help bring you abundance, success, and greater.');
 
 insert into products( name, price, category_id, img_url, quantity, description ) 
 values ('Classic Tarot', 17, 2, 'https://images.unsplash.com/photo-1627764574958-fb54cd7d7448?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80', 0, 'This is a wonderful classic tarot description');

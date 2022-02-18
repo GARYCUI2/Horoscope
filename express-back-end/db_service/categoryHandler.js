@@ -7,7 +7,7 @@ const getAllCategorier = function(db) {
   return db
     .query(quertString)
     .then(res => res.rows)
-    .catch(console.error("error running in get all category!!!!"))
+    .catch(err => console.error("error running in get all category: ", err))
 };
 
 const deleteCategoryByid = function(db,deleteCategory) {
@@ -18,7 +18,7 @@ const deleteCategoryByid = function(db,deleteCategory) {
   return db
     .query(quertString,deleteValue)
     .then(res => res.rows)
-    .catch(console.error("error running in get category by id!!!!"))
+    .catch(err => console.error("error running in get category by id: ", err))
 };
 
 const editCategoryByid = function(db,newCategory) {
@@ -30,7 +30,7 @@ const editCategoryByid = function(db,newCategory) {
   return db
     .query(quertString,newValue)
     .then(res => res.rows)
-    .catch(console.error("error running in edit category!!!!"))
+    .catch(err => console.error("error running in edit category!!!!", err))
 };
 
 module.exports = {

@@ -18,10 +18,9 @@ function Cart(props) {
       cartItems,
       totalPrice
     }
-    console.log(token);
-    return axios.post(`/api/payment`,{
-      body:JSON.stringify(body)
-    }).then(res=>{
+
+    return axios.post(`/api/payment`, body
+    ).then(res=>{
       console.log('RESPONSE',res);
       
       const {status} = res;
