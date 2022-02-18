@@ -32,10 +32,11 @@ CREATE TABLE orders(
   id varchar(20) PRIMARY KEY NOT NULL,
   buyer_name varchar(225) NOT NULL,
   buyer_email varchar(225) NOT NULL,
-  credit_card_number varchar(16) NOT NULL,
-  status varchar(100) NOT NULL,
+  credit_card_number varchar(40) NOT NULL,
+  status varchar(100),
   mobile varchar(20),
-  created_at TIMESTAMP
+  created_at TIMESTAMP,
+  total_price DECIMAL
 );
 
 CREATE TABLE order_items(
