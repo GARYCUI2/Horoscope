@@ -31,6 +31,9 @@ App.use("/api/categories", categoryRoutes(db));
 const paymentRoutes = require("./routes/payment");
 App.use("/api/payment", paymentRoutes(db));
 
+const orderRoutes = require("./routes/orders");
+App.use("/api/orders", orderRoutes(db));
+
 
 // Sample GET route
 App.get('/api/data', (req, res) => res.json({
