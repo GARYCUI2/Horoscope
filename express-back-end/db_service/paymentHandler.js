@@ -11,26 +11,25 @@ const minusQuantityInProduct = function(db,newProductInfo) {
     .catch(err => console.error("error running in minus quantity In product: ", err))
 };
 
-const addorder = function(db,token,total_price) {
+const addorder = function(order_id,db,token,totalPrice) {
   const buyer_name = token.card.name;
   const buyer_email = token.email;
-  const credit_card_number = token.buyer_email;
-  const mobile = token.id;
+  const credit_card_number = token.card.id;
+  //const mobile = token.id;
+  const created_at = new Date(token.created);
+
+  const newValue = [order_id, buyer_name, buyer_email, credit_card_number, created_at, totalPrice];
   
-  const created_at = token.created;
-  const newValue = [buyer_name, buyer_email, credit_card_number, mobile, created_at, total_price];
-  
-  const quertString = `INSERT INTO orders (buyer_name, buyer_email, credit_card_number, mobile, created_at, total_price)
+  const quertString = `INSERT INTO orders (id, buyer_name, buyer_email, credit_card_number, created_at, total_price)
   VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`;
 
   return db
     .query(quertString,newValue)
     .then(res => res.rows)
-    .catch(err => console.error("error running in add order information!!!!",err))
+    .catch(err => console.error("error running in add order information: ",err))
 };
 
-const addOrderItem = function(db,newOrderItem) {
-  const order_id = newOrderItem.order_id;
+const addOrderItem = function(db, newOrderItem, order_id) {
   const product_id = newOrderItem.id;
   const quantity = newOrderItem.qty;
   const newValue = [order_id, product_id, quantity]
