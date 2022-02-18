@@ -100,11 +100,6 @@ function Cart(props) {
         </>
       )}
     </div>
-
-
- 
-
-      
   </aside>
   );
 }
