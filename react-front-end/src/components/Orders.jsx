@@ -1,6 +1,15 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useParams } from "react-router-dom";
+import axios from 'axios';
 
-function Orders() {
+
+function Orders(props) {
+  const params = useParams();
+  const [item, setItem] = useState({});
+  const {onAdd} = props;
+  // console.log(params.id);
+
+
   return (
     <div className="orders">
       <div class="container">
