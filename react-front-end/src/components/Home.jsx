@@ -39,7 +39,6 @@ function Home() {
   const [showAquarius, setShowAquarius] = useState(true);
   const [pisces, setPisces] = useState(false);
   const [showPisces, setShowPisces] = useState(true);
-  const [date, setDate] = useState({ date: '' });
 
   const ariesClick = () => {
     setAries(true);
@@ -266,17 +265,17 @@ function Home() {
       <div className="container-fluid">
         <div className="d-flex flex-row">
           <div className="col-lg-12">
-            <h1 className="font-weight-light">Horoscope</h1>
-            <p>
-              Welcome.
+            <h1 className="font-weight-light text-center">Welcome to Lucky Star Astrology</h1>
+            <p className="text-center">
+              Click on your zodiac sign and receive your horoscope!
             </p>
+            <br />
             {/* <form className="form-group justify-content-center" onSubmit={handleSubmit}>
               <label>Enter Your Birthday</label>
               <input type="text" name="date "placeholder="MM/DD" className="form-control" onChange={handleChange}/>
               <br />
               <button className="btn btn-dark">Submit</button>
             </form> */}
-            <label>Choose Your Sign</label>
             <div className="container">
             <div className="d-flex flex-row justify-content-center space-around">
 
@@ -285,17 +284,16 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showAries ? (
-              <div>
+              <div className="zodiac-div">
             <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               name="aries"
               src="/aries.jpeg"
               alt="Aries Symbol"
-              height="300"
-              width="200"
               onClick={ariesClick}
             />
-            <p className="text-center">March 21 - April 19</p>
+            <p className="img__description">March 21 - April 19</p>
             </div>
             ) : null}
             { aries ? <Aries /> : null }
@@ -307,8 +305,9 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showTaurus ? (
-              <div>
+              <div className="zodiac-div">
             <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/taurus.jpeg"
               alt="Taurus Symbol"
@@ -316,7 +315,7 @@ function Home() {
               width="200"
               onClick={taurusClick}
             />
-            <p className="text-center">April 20 - May 20</p>
+            <p className="img__description">April 20 - May 20</p>
             </div>
             ) : null}
             { taurus ? <Taurus /> : null }
@@ -328,8 +327,9 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showGemini ? (
-              <div>
+              <div className="zodiac-div">
              <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/gemini.jpeg"
               alt="Gemini Symbol"
@@ -337,7 +337,7 @@ function Home() {
               width="200"
               onClick={geminiClick}
             />
-            <p className="text-center">May 21 - June 21</p>
+            <p className="img__description">May 21 - June 21</p>
             </div>
             ) : null}
             { gemini ? <Gemini /> : null }
@@ -352,8 +352,9 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showCancer ? (
-              <div>
+              <div className="zodiac-div">
              <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/cancer.jpeg"
               alt="Cancer Symbol"
@@ -361,7 +362,7 @@ function Home() {
               width="200"
               onClick={cancerClick}
             />
-            <p className="text-center">June 22 - July 22</p>
+            <p className="img__description">June 22 - July 22</p>
             </div>
             ) : null}
             { cancer ? <Cancer /> : null }
@@ -373,8 +374,9 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showLeo ? (
-              <div>
+              <div className="zodiac-div">
              <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/leo.jpeg"
               alt="Leo Symbol"
@@ -382,7 +384,7 @@ function Home() {
               width="200"
               onClick={leoClick}
             />
-            <p className="text-center">July 23 - August 22</p>
+            <p className="img__description">July 23 - August 22</p>
             </div>
             ) : null}
             { leo ? <Leo /> : null }
@@ -394,8 +396,9 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showVirgo ? (
-            <div>
+            <div className="zodiac-div">
              <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/virgo.jpeg"
               alt="Virgo Symbol"
@@ -403,7 +406,7 @@ function Home() {
               width="200"
               onClick={virgoClick}
             />
-            <p className="text-center">August 23 - September 22</p>
+            <p className="img__description">August 23 - September 22</p>
             </div>
             ) : null}
             { virgo ? <Virgo /> : null }
@@ -418,8 +421,9 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showLibra ? (
-              <div>
+              <div className="zodiac-div">
              <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/libra.jpeg"
               alt="Libra Symbol"
@@ -427,7 +431,7 @@ function Home() {
               width="200"
               onClick={libraClick}
             />
-            <p className="text-center">September 23 - October 23</p>
+            <p className="img__description">September 23 - October 22</p>
             </div>
             ) : null}
             { libra ? <Libra /> : null }
@@ -439,8 +443,9 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showScorpio ? (
-              <div>
+              <div className="zodiac-div">
              <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/scorpio.jpeg"
               alt="Scorpio Symbol"
@@ -448,7 +453,7 @@ function Home() {
               width="200"
               onClick={scorpioClick}
             />
-            <p className="text-center">October 24 - November 21</p>
+            <p className="img__description">October 23 - November 22</p>
             </div>
             ) : null}
             { scorpio ? <Scorpio /> : null }
@@ -460,8 +465,9 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showSagittarius ? (
-              <div>
+              <div className="zodiac-div">
              <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/sagittarius.jpeg"
               alt="Sagittarius Symbol"
@@ -469,7 +475,7 @@ function Home() {
               width="200"
               onClick={sagittariusClick}
             />
-            <p className="text-center">November 22 - December 21</p>
+            <p className="img__description">November 23 - December 21</p>
             </div>
             ) : null}
             { sagittarius ? <Sagittarius /> : null }
@@ -484,8 +490,9 @@ function Home() {
 
             <section onDoubleClick={onDoubleClick}>
             { showCapricorn ? (
-              <div>
+              <div className="zodiac-div">
              <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/capricorn.jpeg"
               alt="Capricorn Symbol"
@@ -493,7 +500,7 @@ function Home() {
               width="200"
               onClick={capricornClick}
             />
-            <p className="text-center">December 22 - January 19</p>
+            <p className="img__description">December 22 - January 19</p>
             </div>
             ) : null}
             { capricorn ? <Capricorn /> : null }
@@ -505,8 +512,9 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showAquarius ? (
-              <div>
+              <div className="zodiac-div">
              <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/aquarius.jpeg"
               alt="Aquarius Symbol"
@@ -514,7 +522,7 @@ function Home() {
               width="200"
               onClick={aquariusClick}
             />
-            <p className="text-center">January 20 - February 18</p>
+            <p className="img__description">January 20 - February 18</p>
             </div>
             ) : null}
             { aquarius ? <Aquarius /> : null }
@@ -526,8 +534,9 @@ function Home() {
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showPisces ? (
-              <div>
+              <div className="zodiac-div">
              <img
+              id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               src="/pisces.jpeg"
               alt="Pisces Symbol"
@@ -535,7 +544,7 @@ function Home() {
               width="200"
               onClick={piscesClick}
             />
-            <p className="text-center">February 19 - March 20</p>
+            <p className="img__description">February 19 - March 20</p>
             </div>
             ) : null}
             { pisces ? <Pisces /> : null }

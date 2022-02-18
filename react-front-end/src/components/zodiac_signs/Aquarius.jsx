@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Aquarius() {
   const [state, setState] = useState({});
+  const [item, setItem] = useState({});
 
   const URL = `https://aztro.sameerkumar.website/?sign=aquarius&day=today`;
   useEffect(() => {
@@ -12,27 +14,41 @@ function Aquarius() {
           })
   }, []);
 
+  const recommendedItem = (item) => {
+    const keys = Object.keys(item);
+    return item[keys[keys.length * Math.random() << 0]];
+  }
+
+  useEffect(() => {
+    axios.get(`/api/products`)
+    .then((res) => {
+      setItem(recommendedItem(res.data))
+    })
+  },[])
+
+
   return (
-    <div>
+    <div className="zodiac-description">
     <img 
-    className="img-fluid rounded mb-12 img-responsive text center"
+    className="img-fluid rounded mb-12 img-responsive"
     src="/aquarius.jpeg"
     alt="Aquarius Symbol"
     height="400"
     width="600"
     />
-    <div>
-        Current Date: {state.current_date} <br />
-        Compatibility: {state.compatibility} <br />
-        Lucky Number: {state.lucky_number} <br />
-        Lucky Time: {state.lucky_time} <br />
-        Color: {state.color} <br />
-        Date Range: {state.date_range} <br />
-        Mood: {state.mood} <br />
-        Description: {state.description} <br />
+    <p className='text-md-left text-center'>
+        <b>Date Range:</b> {state.date_range} <br />
+        <b>Current Date:</b> {state.current_date} <br />
+        <b>Compatibility:</b> {state.compatibility} <br />
+        <b>Lucky Number:</b> {state.lucky_number} <br />
+        <b>Lucky Time:</b> {state.lucky_time} <br />
+        <b>Color:</b> {state.color} <br />
+        <b>Mood:</b> {state.mood} <br />
+        <b>Description:</b> {state.description} <br />
+        <b>Your Recommended Item:</b> <Link to="/shop">{item.name}</Link> <br />
+      </p>
         <br />
-        <p>Double click to view other signs!</p>
-    </div>
+        <p>Double click to view another sign!</p>
     </div>
     
   )
