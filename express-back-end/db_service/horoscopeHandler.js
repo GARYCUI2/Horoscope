@@ -7,7 +7,7 @@ const getAllHoroscope = function(db) {
   return db
     .query(quertString)
     .then(res => res.rows)
-    .catch(console.error("error running in get all horoscope!!!!"))
+    .catch(err => console.error("error running in get all horoscope!!!!", err))
 };
 
 module.exports = {

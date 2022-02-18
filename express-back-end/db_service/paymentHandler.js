@@ -1,14 +1,14 @@
 const minusQuantityInProduct = function(db,newProductInfo) {
   const id = newProductInfo.id
-  const newQuantity = int(newProductInfo.quantity) -int(newProductInfo.qty);
+  const newQuantity = Number(newProductInfo.quantity) - Number(newProductInfo.qty);
   const newValue = [id, newQuantity]
   const quertString = `UPDATE products SET quantity = $2 WHERE products.id = $1 
   RETURNING *`;
 
   return db
-    .query(quertString,newValue)
+    .query(quertString, newValue)
     .then(res => res.rows)
-    .catch(console.error("error running in minus Quantity In Product!!!!"))
+    .catch(err => console.error("error running in minus quantity In product: ", err))
 };
 
 const addorder = function(db,token,total_price) {
@@ -26,7 +26,7 @@ const addorder = function(db,token,total_price) {
   return db
     .query(quertString,newValue)
     .then(res => res.rows)
-    .catch(console.error("error running in add order information!!!!"))
+    .catch(err => console.error("error running in add order information!!!!",err))
 };
 
 const addOrderItem = function(db,newOrderItem) {
@@ -40,7 +40,7 @@ const addOrderItem = function(db,newOrderItem) {
   return db
     .query(quertString,newValue)
     .then(res => res.rows)
-    .catch(console.error("error running in add order item!!!!"))
+    .catch(err => console.error("error running in add order item!!!!", err))
 };
 
 module.exports = {
