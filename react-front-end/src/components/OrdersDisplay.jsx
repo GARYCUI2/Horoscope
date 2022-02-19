@@ -1,20 +1,19 @@
 import React, {useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
 import axios from 'axios';
 
 
 function Orders_display(props) {
   const {orderId} = props;
   const [order, setOrder] = useState({});
-  // console.log(params.id);
+  console.log(orderId);
   useEffect(() => {
     axios.get(`/api/orders/${orderId}`)
     .then((order) => {
-      // console.log(item.data);
+      console.log(order);
       setOrder(order.data[0]);
     });
   },[]);
-//  console.log(item);
+//  console.log(order);
   if (!order) return null;
 
 

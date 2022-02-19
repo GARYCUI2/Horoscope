@@ -2,10 +2,11 @@ import React from "react";
 import axios from 'axios';
 import './cart.css'
 import StripeCheckout from "react-stripe-checkout";
+import {useNavigate} from 'react-router-dom';
 import 'dotenv/config' 
 
 function Cart(props) {
-
+  const navigate = useNavigate();
   const {cartItems, onAdd, onRemove} = props;
   // console.log(cartItems);
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
@@ -24,7 +25,8 @@ function Cart(props) {
       console.log('RESPONSE',res);
       
       const {status} = res;
-      console.log('status',status)
+      console.log('status',status);
+      status === 200 && navigate('/success');
     }).catch(error => {
       console.log(error)
     })
@@ -93,6 +95,7 @@ function Cart(props) {
             amount={totalPrice * 100}
             shippingAddress
             billingAddress
+            onSuccessfulCheckout={() => navigate('/')}
             >
               <button className="btn-large-blue">Checkout</button>
           </StripeCheckout>   

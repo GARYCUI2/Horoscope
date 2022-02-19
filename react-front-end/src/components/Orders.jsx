@@ -1,8 +1,15 @@
 import React, {useState} from "react";
-import Orders_display from "./Orders_display"
+import OrdersDisplay from "./OrdersDisplay"
 
 function Orders() {
   const [orderId, setOrderId] = useState({});
+  // console.log(orderId);
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    // console.log(event.target[0].value)
+    setOrderId(event.target[0].value);
+  }
 
   return (
     <aside className="block col-1">
@@ -13,15 +20,12 @@ function Orders() {
 
           </div>
           <div className="col-lg-5">
-            <form>
+            <form onSubmit={handleSubmit}>
               <label>
                 <input type="text" name="name" placeholder="Order Number"/>
               </label>
               <section className="order_display">
-            <button onClick={(event) => {
-                                          event.preventDefault();
-                                          setOrderId(event.target.value);
-            }}>Summit
+            <button >Summit
           </button>
           </section>
             </form>
@@ -30,7 +34,7 @@ function Orders() {
         </div>
       </div>
     </div>
-    {orderId && Orders_display(orderId)}  
+    {<OrdersDisplay orderId={orderId}/>}  
   </aside>
   );
 }

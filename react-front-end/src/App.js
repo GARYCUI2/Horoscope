@@ -12,6 +12,7 @@ import {
   Orders,
   Cart,
   Product,
+  Success,
 } from "./components";
 
 const App = () =>{
@@ -62,6 +63,7 @@ const onRemove = (product) => {
         <Route path="/cart" element={<Cart cartItems={cartItems} onRemove={onRemove} onAdd={onAdd}/>} />
         <Route path="/shop/:id" element={<Product onAdd={onAdd}/>} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
       <Footer />
     </Router>
