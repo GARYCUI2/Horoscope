@@ -3,7 +3,7 @@ import OrdersDisplay from "./OrdersDisplay"
 
 function Orders() {
   const [orderId, setOrderId] = useState({});
-  // console.log(orderId);
+  console.log(orderId);
 
   const handleSubmit = (event) => {
     event.preventDefault()

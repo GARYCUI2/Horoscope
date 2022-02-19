@@ -6,13 +6,16 @@ function Orders_display(props) {
   const {orderId} = props;
   const [order, setOrder] = useState({});
   console.log(orderId);
+
   useEffect(() => {
     axios.get(`/api/orders/${orderId}`)
     .then((order) => {
       console.log(order);
       setOrder(order.data[0]);
     });
-  },[]);
+  },[orderId]);
+
+
 //  console.log(order);
   if (!order) return null;
 
