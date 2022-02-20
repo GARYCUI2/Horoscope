@@ -19,6 +19,7 @@ App.use(BodyParser.urlencoded({ extended: true }));
 App.use(BodyParser.json());
 App.use(Express.static('public'));
 
+
 const horoscopeRoutes = require("./routes/horoscope");
 App.use("/api/horoscope", horoscopeRoutes(db));
 
@@ -33,6 +34,7 @@ App.use("/api/payment", paymentRoutes(db));
 
 const orderRoutes = require("./routes/orders");
 App.use("/api/orders", orderRoutes(db));
+
 
 
 // Sample GET route
