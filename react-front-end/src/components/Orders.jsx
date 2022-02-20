@@ -12,28 +12,25 @@ function Orders() {
   }
 
   return (
-    <aside className="block col-1">
-    <div className="orders">
-      <div className="container">
+    <aside className="block col-7 ">
         <div className="row align-items-center my-5">
-          <div className="col-lg-7">
-
-          </div>
-          <div className="col-lg-5">
+          
+          <div className="col-lg-12 ">
             <form onSubmit={handleSubmit}>
-              <label>
+            <div className="d-flex justify-content-center">
+          <h1 >Input your order number here:</h1>
+          </div>
+              <label className="d-flex justify-content-center">
                 <input type="text" name="name" placeholder="Order Number"/>
               </label>
-              <section className="order_display">
-            <button >Summit
+              <section className="order_display d-flex justify-content-center">
+            <button className = "btn-cart " >Summit
           </button>
           </section>
             </form>
             
           </div>
         </div>
-      </div>
-    </div>
     {<OrdersDisplay orderId={orderId}/>}  
   </aside>
   );

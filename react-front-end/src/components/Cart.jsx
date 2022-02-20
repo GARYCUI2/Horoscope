@@ -7,7 +7,7 @@ import 'dotenv/config'
 
 function Cart(props) {
   const navigate = useNavigate();
-  const {cartItems, onAdd, onRemove} = props;
+  const {cartItems, onAdd, onRemove, setCartItems} = props;
   // console.log(cartItems);
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
   const taxPrice = itemsPrice * 0.14;
@@ -27,6 +27,8 @@ function Cart(props) {
       const {status} = res;
       console.log('status',status);
       status === 200 && navigate('/success');
+      console.log(cartItems);
+      setCartItems();
     }).catch(error => {
       console.log(error)
     })
@@ -34,9 +36,9 @@ function Cart(props) {
 
   return (
     <aside className="block col-8">
-    <h2>Cart Items</h2>
+    {cartItems.length !== 0 && <h2>Cart Items</h2>}
     <div>
-      {cartItems.length === 0 && <div>Cart is empty</div>}
+      {cartItems.length === 0 && <div className="text-danger d-flex justify-content-center" >Cart is empty</div>}
       {cartItems.map((item) => (
         <div key={item.id} className="row ">
           <div className="col-lg-2">
@@ -98,7 +100,6 @@ function Cart(props) {
             amount={totalPrice * 100}
             shippingAddress
             billingAddress
-            onSuccessfulCheckout={() => navigate('/')}
             >
               <button type = "button" className = "btn-cart ">Checkout</button>
           </StripeCheckout>   

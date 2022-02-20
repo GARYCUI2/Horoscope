@@ -24,29 +24,22 @@ function Orders_display(props) {
     <div className="orders">
       <div className="container">
         <div className="row align-items-center my-5">
-          <div className="col-lg-7">
-            <img
-              className="img-fluid rounded mb-4 mb-lg-0"
-              src="http://placehold.it/900x400"
-              alt=""
-            />
-          </div>
           <div className="col-lg-5">
-            <h2 className="font-weight-light">Order Id  {order.id}</h2>
+            <h2 className="text-danger">Order Id:  {order.id}</h2>
             <p>
-            {order.buyer_name}
+            Buyer:{order.buyer_name}
             </p>
             <p>
-            {order.buyer_email}
+            Buyer's email: <nobr className="text-primary">{order.buyer_email}</nobr>
             </p>
             <p>
-            {order.status}
+           Order status: <nobr className="text-danger">{order.status}</nobr>
             </p>
             <p>
-            {order.mobile}
+           Buyer's mobile: <nobr className="text-primary">{order.mobile}</nobr>
             </p>
             <p>
-            {order.created_at}
+           Created at: {order.created_at}
             </p>
           </div>
         </div>
