@@ -7,7 +7,7 @@ import 'dotenv/config'
 
 function Cart(props) {
   const navigate = useNavigate();
-  const {cartItems, onAdd, onRemove, setCartItems} = props;
+  const {cartItems, onAdd, onRemove, clearCart} = props;
   // console.log(cartItems);
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
   const taxPrice = itemsPrice * 0.14;
@@ -28,7 +28,8 @@ function Cart(props) {
       console.log('status',status);
       status === 200 && navigate('/success');
       console.log(cartItems);
-      setCartItems();
+      clearCart();
+      
     }).catch(error => {
       console.log(error)
     })

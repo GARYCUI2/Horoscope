@@ -21,6 +21,10 @@ const App = () =>{
 
 
 const [cartItems, setCartItems] = useState([]);
+
+const clearCart = () =>{
+  setCartItems(...cartItems, []);
+}
 const onAdd = (product) => {
   const exist = cartItems.find ( x => x.id === product.id );
   if (exist) {
@@ -59,8 +63,8 @@ const onRemove = (product) => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/shop" element={<Shop items={items} cartItems={cartItems} onAdd={onAdd} setCartItems={setCartItems}/>} />
-        <Route path="/cart" element={<Cart cartItems={cartItems} onRemove={onRemove} onAdd={onAdd}/>} />
+        <Route path="/shop" element={<Shop items={items} cartItems={cartItems} onAdd={onAdd} />} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} onRemove={onRemove} onAdd={onAdd} clearCart={clearCart} />} />
         <Route path="/shop/:id" element={<Product onAdd={onAdd}/>} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/success" element={<Success />} />
