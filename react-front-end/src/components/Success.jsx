@@ -4,9 +4,9 @@ function Success(props) {
 
 
   return (
-    <aside className="block col-1">
-    <h2>Congrats!</h2>
-    <h3>Stripe has successfully processed your payment</h3>
+    <aside className="block col-7">
+    <h1 className="text-danger">Congrats!</h1>
+    <h2 className="text-info">Stripe has successfully processed your payment</h2>
   </aside>
   );
 }
