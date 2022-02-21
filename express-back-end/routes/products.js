@@ -29,9 +29,9 @@ module.exports = (db) => {
     })
   })
 
-  router.delete("/", 
+  router.delete("/:id", 
   (req,res) => {
-    let id = req.body.id;
+    const id = req.params.id;
     productsHelper.deleteProductsById(db,id)
     .then(dbRes => {
       res.send(dbRes);
@@ -42,12 +42,12 @@ module.exports = (db) => {
     })
   })
 
-  router.post("/", 
+  router.post("/add/", 
   (req,res) => {
     //const id = req.body.id;
     const name = req.body.name;
     const description= req.body.description; 
-    const category = req.body.category;
+    const category_id = req.body.category_id;
     const price = req.body.price;
     const img_url = req.body.img_url; 
     const quantity = req.body.quantity;
@@ -56,7 +56,7 @@ module.exports = (db) => {
       //id,
       name,
       description,
-      category,
+      category_id,
       price,
       img_url,
       quantity
