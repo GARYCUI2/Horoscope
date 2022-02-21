@@ -277,11 +277,11 @@ function Home() {
               <button className="btn btn-dark">Submit</button>
             </form> */}
             <div className="container">
-            <div className="d-flex flex-row justify-content-center space-around">
+            <div className="d-flex flex-row">
 
           {/* Aries Sign */}
 
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column text-center">
             <section onDoubleClick={onDoubleClick}>
             { showAries ? (
               <div className="zodiac-div">
@@ -289,7 +289,7 @@ function Home() {
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               name="aries"
-              src="/aries.jpeg"
+              src="https://i.imgur.com/nCh1QNM.jpg"
               alt="Aries Symbol"
               onClick={ariesClick}
             />
@@ -309,7 +309,7 @@ function Home() {
             <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/taurus.jpeg"
+              src="https://i.imgur.com/lLRrN8E.jpg"
               alt="Taurus Symbol"
               height="300"
               width="200"
@@ -331,7 +331,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/gemini.jpeg"
+              src="https://i.imgur.com/pK90QqW.jpg"
               alt="Gemini Symbol"
               height="300"
               width="200"
@@ -356,7 +356,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/cancer.jpeg"
+              src="https://i.imgur.com/G6AQTIA.jpg"
               alt="Cancer Symbol"
               height="300"
               width="200"
@@ -378,7 +378,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/leo.jpeg"
+              src="https://i.imgur.com/3qaB5KP.jpg"
               alt="Leo Symbol"
               height="300"
               width="200"
@@ -400,7 +400,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/virgo.jpeg"
+              src="https://i.imgur.com/ZJQ3HRo.jpg"
               alt="Virgo Symbol"
               height="300"
               width="200"
@@ -425,7 +425,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/libra.jpeg"
+              src="https://i.imgur.com/ba4d5YZ.jpg"
               alt="Libra Symbol"
               height="300"
               width="200"
@@ -447,7 +447,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/scorpio.jpeg"
+              src="https://i.imgur.com/8D4YBd3.jpg"
               alt="Scorpio Symbol"
               height="300"
               width="200"
@@ -469,7 +469,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/sagittarius.jpeg"
+              src="https://i.imgur.com/9U4cvOF.jpg"
               alt="Sagittarius Symbol"
               height="300"
               width="200"
@@ -494,7 +494,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/capricorn.jpeg"
+              src="https://i.imgur.com/HTfYL00.jpg"
               alt="Capricorn Symbol"
               height="300"
               width="200"
@@ -516,7 +516,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/aquarius.jpeg"
+              src="https://i.imgur.com/gmNacde.jpg"
               alt="Aquarius Symbol"
               height="300"
               width="200"
@@ -538,7 +538,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/pisces.jpeg"
+              src="https://i.imgur.com/bFNe3kF.jpg"
               alt="Pisces Symbol"
               height="300"
               width="200"

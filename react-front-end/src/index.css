@@ -32,6 +32,7 @@ img {
 
 #zodiac-img {
   width: 75%;
+  right: 5%;
 }
 
 .zodiac-description {
@@ -56,6 +57,7 @@ img {
 
 .img__description {
   position: absolute;
+  text-align: center;
   top: 0;
   bottom: 0;
   left: 0;
