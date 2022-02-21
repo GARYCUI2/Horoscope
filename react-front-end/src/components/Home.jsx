@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import "../index.css"
-import Aries from "./zodiac_signs/Aries";
-import Taurus from "./zodiac_signs/Taurus";
-import Gemini from "./zodiac_signs/Gemini";
-import Cancer from "./zodiac_signs/Cancer";
-import Leo from "./zodiac_signs/Leo";
-import Virgo from "./zodiac_signs/Virgo";
-import Libra from "./zodiac_signs/Libra";
-import Scorpio from "./zodiac_signs/Scorpio";
-import Sagittarius from "./zodiac_signs/Sagittarius";
-import Capricorn from "./zodiac_signs/Capricorn";
-import Aquarius from "./zodiac_signs/Aquarius";
-import Pisces from "./zodiac_signs/Pisces";
+
+const Aries = React.lazy(() => import("./zodiac_signs/Aries"))
+const Taurus = React.lazy(() => import("./zodiac_signs/Taurus"))
+const Gemini = React.lazy(() => import("./zodiac_signs/Gemini"))
+const Cancer = React.lazy(() => import("./zodiac_signs/Cancer"))
+const Leo = React.lazy(() => import("./zodiac_signs/Leo"))
+const Virgo = React.lazy(() => import("./zodiac_signs/Virgo"));
+const Libra = React.lazy(() => import("./zodiac_signs/Libra"));
+const Scorpio = React.lazy(() => import("./zodiac_signs/Scorpio"))
+const Sagittarius = React.lazy(() => import("./zodiac_signs/Sagittarius"));
+const Capricorn = React.lazy(() => import("./zodiac_signs/Capricorn"));
+const Aquarius = React.lazy(() => import("./zodiac_signs/Aquarius"));
+const Pisces = React.lazy(() => import("./zodiac_signs/Pisces"));
 
 
 function Home() {
@@ -270,18 +271,12 @@ function Home() {
               Click on your zodiac sign and receive your horoscope!
             </p>
             <br />
-            {/* <form className="form-group justify-content-center" onSubmit={handleSubmit}>
-              <label>Enter Your Birthday</label>
-              <input type="text" name="date "placeholder="MM/DD" className="form-control" onChange={handleChange}/>
-              <br />
-              <button className="btn btn-dark">Submit</button>
-            </form> */}
             <div className="container">
-            <div className="d-flex flex-row justify-content-center space-around">
-
+            <div className="d-flex flex-row">
+          
           {/* Aries Sign */}
-
-            <div className="d-flex flex-column">
+          <React.Suspense fallback={<p>Loading...</p>}>
+            <div className="d-flex flex-column text-center">
             <section onDoubleClick={onDoubleClick}>
             { showAries ? (
               <div className="zodiac-div">
@@ -289,7 +284,7 @@ function Home() {
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
               name="aries"
-              src="/aries.jpeg"
+              src="https://i.imgur.com/nCh1QNM.jpg"
               alt="Aries Symbol"
               onClick={ariesClick}
             />
@@ -299,9 +294,9 @@ function Home() {
             { aries ? <Aries /> : null }
             </section> 
             </div>
-
+            </React.Suspense>
             {/* Taurus Sign */}
-
+            <React.Suspense fallback={<p>Loading...</p>}>
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showTaurus ? (
@@ -309,7 +304,7 @@ function Home() {
             <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/taurus.jpeg"
+              src="https://i.imgur.com/lLRrN8E.jpg"
               alt="Taurus Symbol"
               height="300"
               width="200"
@@ -321,9 +316,10 @@ function Home() {
             { taurus ? <Taurus /> : null }
             </section> 
             </div>
+            </React.Suspense>
 
             {/* Gemini Sign */}
-              
+            <React.Suspense fallback={<p>Loading...</p>}>
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showGemini ? (
@@ -331,7 +327,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/gemini.jpeg"
+              src="https://i.imgur.com/pK90QqW.jpg"
               alt="Gemini Symbol"
               height="300"
               width="200"
@@ -343,12 +339,14 @@ function Home() {
             { gemini ? <Gemini /> : null }
             </section> 
             </div>
+            </React.Suspense>
             </div>
+            
 
             <div className="d-flex flex-row justify-content-center">
 
             {/* Cancer Sign */}
-
+            <React.Suspense fallback={<p>Loading...</p>}>
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showCancer ? (
@@ -356,7 +354,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/cancer.jpeg"
+              src="https://i.imgur.com/G6AQTIA.jpg"
               alt="Cancer Symbol"
               height="300"
               width="200"
@@ -368,9 +366,9 @@ function Home() {
             { cancer ? <Cancer /> : null }
             </section>  
             </div>
-
+            </React.Suspense>
             {/* Leos Sign */}
-
+            <React.Suspense fallback={<p>Loading...</p>}>
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showLeo ? (
@@ -378,7 +376,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/leo.jpeg"
+              src="https://i.imgur.com/3qaB5KP.jpg"
               alt="Leo Symbol"
               height="300"
               width="200"
@@ -390,9 +388,10 @@ function Home() {
             { leo ? <Leo /> : null }
             </section> 
             </div>
+            </React.Suspense>
 
             {/* Virgo Sign */}
-
+            <React.Suspense fallback={<p>Loading...</p>}>
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showVirgo ? (
@@ -400,7 +399,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/virgo.jpeg"
+              src="https://i.imgur.com/ZJQ3HRo.jpg"
               alt="Virgo Symbol"
               height="300"
               width="200"
@@ -412,12 +411,13 @@ function Home() {
             { virgo ? <Virgo /> : null }
             </section>  
             </div>
+            </React.Suspense>
             </div>
 
             <div className="d-flex flex-row justify-content-center">
 
             {/* Libra Sign */}
-
+            <React.Suspense fallback={<p>Loading...</p>}>
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showLibra ? (
@@ -425,7 +425,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/libra.jpeg"
+              src="https://i.imgur.com/ba4d5YZ.jpg"
               alt="Libra Symbol"
               height="300"
               width="200"
@@ -437,9 +437,10 @@ function Home() {
             { libra ? <Libra /> : null }
             </section>  
             </div>
+            </React.Suspense>
 
             {/* Scorpio Sign */}
-
+            <React.Suspense fallback={<p>Loading...</p>}>
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showScorpio ? (
@@ -447,7 +448,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/scorpio.jpeg"
+              src="https://i.imgur.com/8D4YBd3.jpg"
               alt="Scorpio Symbol"
               height="300"
               width="200"
@@ -459,9 +460,10 @@ function Home() {
             { scorpio ? <Scorpio /> : null }
             </section> 
             </div> 
+            </React.Suspense>
 
             {/* Sagittarius Sign */}
-
+            <React.Suspense fallback={<p>Loading...</p>}>
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showSagittarius ? (
@@ -469,7 +471,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/sagittarius.jpeg"
+              src="https://i.imgur.com/9U4cvOF.jpg"
               alt="Sagittarius Symbol"
               height="300"
               width="200"
@@ -481,20 +483,21 @@ function Home() {
             { sagittarius ? <Sagittarius /> : null }
             </section> 
             </div>
+            </React.Suspense>
             </div>
 
             <div className="d-flex flex-row justify-content-center">
-            <div className="d-flex flex-column">
-
+            
             {/* Capricorn Sign */}
-
+            <React.Suspense fallback={<p>Loading...</p>}>
+            <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showCapricorn ? (
               <div className="zodiac-div">
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/capricorn.jpeg"
+              src="https://i.imgur.com/HTfYL00.jpg"
               alt="Capricorn Symbol"
               height="300"
               width="200"
@@ -506,9 +509,10 @@ function Home() {
             { capricorn ? <Capricorn /> : null }
             </section> 
             </div>
+            </React.Suspense>
 
             {/* Aquarius Sign */}
-
+            <React.Suspense fallback={<p>Loading...</p>}>
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showAquarius ? (
@@ -516,7 +520,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/aquarius.jpeg"
+              src="https://i.imgur.com/gmNacde.jpg"
               alt="Aquarius Symbol"
               height="300"
               width="200"
@@ -528,9 +532,10 @@ function Home() {
             { aquarius ? <Aquarius /> : null }
             </section>
             </div>
+            </React.Suspense>
 
             {/* Pisces Sign */}
-
+            <React.Suspense fallback={<p>Loading...</p>}>
             <div className="d-flex flex-column">
             <section onDoubleClick={onDoubleClick}>
             { showPisces ? (
@@ -538,7 +543,7 @@ function Home() {
              <img
               id="zodiac-img"
               className="img-fluid rounded mb-lg img-responsive"
-              src="/pisces.jpeg"
+              src="https://i.imgur.com/bFNe3kF.jpg"
               alt="Pisces Symbol"
               height="300"
               width="200"
@@ -550,10 +555,12 @@ function Home() {
             { pisces ? <Pisces /> : null }
             </section>
             </div>
+            </React.Suspense>
             </div>
           </div>
           </div>
         </div>
+        
         </div>
     </div>
   );
