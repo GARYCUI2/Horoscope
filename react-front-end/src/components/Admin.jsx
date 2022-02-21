@@ -74,6 +74,16 @@ function Admin() {
         })
   }
 
+  const handleCategoryDelete = (categoryID) => {
+    axios.delete(`/api/categories/${categoryID}`)
+          .then((res) => {
+            console.log(res.data)
+          })
+          .catch((err) => {
+            console.log('error: ', err)
+          })
+  }
+
 
 const handleProductSubmit = (e) => {
   e.preventDefault();
@@ -102,9 +112,14 @@ const handleProductSubmit = (e) => {
         })
 }
 
-      const handleDelete = (id) => {
-        axios.delete(`/api/products/${id}`)
-              .then()
+      const handleProductDelete = (productID) => {
+        axios.delete(`/api/products/${productID}`)
+          .then((res) => {
+            console.log(res.data)
+          })
+          .catch((err) => {
+            console.log('error: ', err)
+          })
       }
 
   return (
@@ -118,7 +133,6 @@ const handleProductSubmit = (e) => {
             <tr>
             <th scope="col">Category ID</th>
               <th scope="col">Category Name</th>
-              <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
                 </tr>
                 {
@@ -127,8 +141,7 @@ const handleProductSubmit = (e) => {
                   <tr>
                 <th scope="row">{category.id}</th>
                 <td key={category.id}>{category.category_name}</td>
-                 <td><button>Edit</button></td>
-                 <td><button onClick={handleDelete}>Delete</button></td>
+                 <td><button onClick={() => handleCategoryDelete(category.id)}>Delete</button></td>
                  </tr>
                  </tbody> )
                 } 
@@ -154,11 +167,8 @@ const handleProductSubmit = (e) => {
                 <th scope="col">Image</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
-                <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
-                </tr>
-            
-                 
+                </tr>     
                 {
                 item.map(item => 
                 <tbody>
@@ -169,15 +179,11 @@ const handleProductSubmit = (e) => {
                 <td><img src={item.img_url} alt=""/></td>
                  <td>${Number(item.price).toFixed(2)}</td>
                  <td>{item.quantity}</td>
-                 <td><button>Edit</button></td>
-                 <td><button onClick={handleDelete}>Delete</button></td>
+                 <td><button onClick={() => handleProductDelete(item.id)}>Delete</button></td>
                  </tr>
                  </tbody> )
                 } 
-
           </table> 
-
-          
           <br />
           <hr />
           <h2>Add A Product</h2>
