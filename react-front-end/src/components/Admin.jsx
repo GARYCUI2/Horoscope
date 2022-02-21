@@ -76,8 +76,10 @@ function Admin() {
 
   const handleCategoryDelete = (categoryID) => {
     axios.delete(`/api/categories/${categoryID}`)
+    
           .then((res) => {
             console.log(res.data)
+            setCatValue([...category])
           })
           .catch((err) => {
             console.log('error: ', err)
@@ -91,7 +93,7 @@ const handleProductSubmit = (e) => {
     id: values.id,
     name: values.name,
     description: values.description,
-    category: values.category,
+    category_id: values.category_id,
     price: values.price,
     img_url: values.img_url,
     quantity: values.quantity
@@ -125,6 +127,7 @@ const handleProductSubmit = (e) => {
   return (
     <div className="about">
       <div className="container">
+        <div className="admin-container">
         <div className="row align-items-center my-5">
           <div className="col-lg-7">
           <h1 className="font-weight-light text-center">Admin</h1>
@@ -194,7 +197,7 @@ const handleProductSubmit = (e) => {
           <form onSubmit={handleProductSubmit}>
             <div className="form-group">
             <label>Category ID:</label>
-            <input type='text' className='form-control' name="category" onChange={handleProductChange} />
+            <input type='text' className='form-control' name="category_id" onChange={handleProductChange} />
             <label>ID:</label>
             <input type='text' className='form-control' name="id" onChange={handleProductChange} />
             <label>Description:</label>
@@ -212,6 +215,7 @@ const handleProductSubmit = (e) => {
           </form>
           </div>
           <div className="col-lg-5">
+          </div>
           </div>
         </div>
       </div>

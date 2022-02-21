@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  margin-bottom: 30%;
+  margin-bottom: 5%;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -18,9 +18,11 @@ img {
   width: 50%;
 }
 
+/* Home Page */
+
 .home {
   margin-top: 2%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 
 .zodiac-div {
@@ -28,11 +30,11 @@ img {
   position: relative;
   margin-top:20px;
   margin-bottom:20px;
+  left: 15%
 }
 
 #zodiac-img {
   width: 75%;
-  right: 5%;
 }
 
 .zodiac-description {
@@ -42,16 +44,21 @@ img {
   text-align: center;
   overflow: hidden;
   flex-wrap: wrap;
-  
 }
 
 .zodiac-description p {
   display: inline-block;
   text-align: left;
-  padding-left: 25%;
-  padding-right: 25%;
+  padding-left: 10%;
+  padding-right: 10%;
   padding-top: 1%;
   text-overflow: clip;
+}
+
+.zodiac-description img {
+  position: relative;
+  width: 80%;
+  left: 10%;
 }
 
 
@@ -61,7 +68,7 @@ img {
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 25%;
   color: #fff;
   visibility: hidden;
   opacity: 0;
@@ -76,4 +83,9 @@ img {
   opacity: 1;
 }
 
+/* Admin Page */
 
+.admin-container {
+  position: relative;
+  left: 20%;
+}

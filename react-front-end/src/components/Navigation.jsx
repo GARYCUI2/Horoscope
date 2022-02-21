@@ -37,11 +37,11 @@ function Navigation(props) {
                 Orders
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink className="nav-link" to="/admin">
                 Admin
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
