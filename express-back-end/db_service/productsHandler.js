@@ -74,11 +74,29 @@ const editProductsById = function(db, newProduct) {
     .catch(err => console.error("error running in edit product by id: ", err))
 };
 
+const addProducts = function(db, newProduct) {
+  const newValue = [
+    newProduct.name,
+    newProduct.description,
+    newProduct.category,
+    newProduct.price,
+    newProduct.img_url,
+    newProduct.quantity
+  ];
+
+  const quertString = `INSERT INTO products (name, description, category, price, img_url, quantity) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`;
+  return db
+    .query(quertString,newValue)
+    .then(res => res.rows)
+    .catch(err => console.error("error running in edit product by id: ", err))
+};
+
 module.exports = {
   getAllProducts,
   getProductsBySign,
   getProductsById,
   editProductsBySign,
   deleteProductsById,
-  editProductsById
+  editProductsById,
+  addProducts
 }
