@@ -96,7 +96,7 @@ const handleProductSubmit = (e) => {
     img_url: values.img_url,
     quantity: values.quantity
   }
-  axios.post('/api/products', productData)
+  axios.post('/api/products/add', productData)
         .then(() => {
           setItem([...item, productData])
         })
@@ -115,7 +115,7 @@ const handleProductSubmit = (e) => {
       const handleProductDelete = (productID) => {
         axios.delete(`/api/products/${productID}`)
           .then((res) => {
-            console.log(res.data)
+            setItem([...item])
           })
           .catch((err) => {
             console.log('error: ', err)
