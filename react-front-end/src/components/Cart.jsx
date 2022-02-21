@@ -2,11 +2,13 @@ import React from "react";
 import axios from 'axios';
 import './cart.css'
 import StripeCheckout from "react-stripe-checkout";
+import {useNavigate, Link} from 'react-router-dom';
 import 'dotenv/config' 
 
 function Cart(props) {
-
-  const {cartItems, onAdd, onRemove} = props;
+  const navigate = useNavigate();
+  const {cartItems, onAdd, onRemove, clearCart} = props;
+  // console.log(cartItems);
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
   const taxPrice = itemsPrice * 0.14;
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
@@ -18,30 +20,37 @@ function Cart(props) {
       totalPrice
     }
 
-    return axios.post(`/api/payment`,{
-      body:JSON.stringify(body)
-    }).then(res=>{
+    return axios.post(`/api/payment`, body
+    ).then(res=>{
       console.log('RESPONSE',res);
+      
       const {status} = res;
-      console.log('status',status)
+      console.log('status',status);
+      status === 200 && navigate('/success');
+      console.log(cartItems);
+      clearCart();
+      
     }).catch(error => {
       console.log(error)
     })
   }
 
   return (
-    <aside className="block col-1">
-    <h2>Cart Items</h2>
+    <aside className="block col-8">
+    {cartItems.length !== 0 && <h2>Cart Items</h2>}
     <div>
-      {cartItems.length === 0 && <div>Cart is empty</div>}
+      {cartItems.length === 0 && <div className="text-danger d-flex justify-content-center" >Cart is empty</div>}
       {cartItems.map((item) => (
-        <div key={item.id} className="row">
+        <div key={item.id} className="row ">
+          <div className="col-lg-2">
           <img
             className="img-fluid rounded mb-4 mb-lg-0"
             src={item.img_url}
             alt={item.name}
           />
-          <div className="col-2">{item.name}</div>
+          </div>
+
+          <Link className = "col-2" to={`/shop/${item.id}`}>{item.name}</Link>
           <div className="col-2">
             <button onClick={() => onRemove(item)} className="remove">
               -
@@ -61,7 +70,7 @@ function Cart(props) {
         <>
           <hr></hr>
           <div className="row">
-            <div className="col-2">Items Price</div>
+            <div className="col-2 text-middle">Items Price</div>
             <div className="col-1 text-right">${itemsPrice.toFixed(2)}</div>
           </div>
           <div className="row">
@@ -84,7 +93,7 @@ function Cart(props) {
             </div>
           </div>
           <hr />
-          <div className="row">
+          <div className="row d-flex justify-content-center">
               <StripeCheckout 
             stripeKey='pk_test_51KOlmmKJmeHNxH00PDndFuulzugzXpK7oc96KzYmCJKY5D6lLmLv2DL0QQB1jWqXM4o8vNKZwMxYGU7AmGEvQLtd004APTZ0W2'
             token={makePayment} 
@@ -93,17 +102,12 @@ function Cart(props) {
             shippingAddress
             billingAddress
             >
-              <button className="btn-large-blue">Checkout</button>
+              <button type = "button" className = "btn-cart ">Checkout</button>
           </StripeCheckout>   
           </div>
         </>
       )}
     </div>
-
-
- 
-
-      
   </aside>
   );
 }

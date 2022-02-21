@@ -22,31 +22,35 @@ function Product(props) {
   return (
     <div className="shop">
     <div className="container" >
-      <div className="row align-items-center my-5">
+      <div className="row  my-5">
          <React.Fragment key = {item.id}>
-          <div className="col-lg-7">
+          <div className="col-lg-5">
           <img
             className="img-fluid rounded mb-4 mb-lg-0"
             src={item.img_url}
             alt={item.name}
           />
         </div>
-        <div className="col-lg-5">
-          <h2 className="font-weight-light" >
+        <div className="col-lg-6 ">
+          <h2 className="font-weight-bold" >
             {item.name}
             </h2>
-          <p >
+          <div className="col-lg-5 text-primary">
           ${Number(item.price).toFixed(2)}
-          </p>
+          </div>
           <p >
           Only {item.quantity} left in stock
           </p>
           <p >
           Description:{item.description}
           </p>
-          <section className="appointment__card-right">
-        <section className="appointment__actions">
-          <button onClick={() => onAdd(item)}>Add To Cart</button>
+          <section >
+        <section >
+          <button type = "button" className = "btn-cart" onClick={() => onAdd(item)}>
+            Add To Cart
+            <span><i className = "fas fa-plus"></i></span>
+            </button>
+          
         </section>
         </section>
         </div>

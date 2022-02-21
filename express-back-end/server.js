@@ -6,6 +6,7 @@ const App = Express();
 const BodyParser = require('body-parser');
 const PORT = 8080;
 const morgan = require("morgan");
+const stripe = require("stripe")(process.env.REACT_APP_KEY);
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -18,6 +19,7 @@ App.use(BodyParser.urlencoded({ extended: true }));
 App.use(BodyParser.json());
 App.use(Express.static('public'));
 
+
 const horoscopeRoutes = require("./routes/horoscope");
 App.use("/api/horoscope", horoscopeRoutes(db));
 
@@ -27,6 +29,11 @@ App.use("/api/products", productRoutes(db));
 const categoryRoutes = require("./routes/categories");
 App.use("/api/categories", categoryRoutes(db));
 
+const paymentRoutes = require("./routes/payment");
+App.use("/api/payment", paymentRoutes(db));
+
+const orderRoutes = require("./routes/orders");
+App.use("/api/orders", orderRoutes(db));
 
 
 

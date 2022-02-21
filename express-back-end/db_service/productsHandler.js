@@ -7,7 +7,7 @@ const getAllProducts = function(db) {
   return db
     .query(quertString)
     .then(res => res.rows)
-    .catch(console.error("error running in get all products!!!!"))
+    .catch(err => console.error("error running in get all products: ", err))
 };
 
 const getProductsBySign = function(db,sign) {
@@ -39,7 +39,7 @@ const getProductsById = function(db, id) {
   return db
     .query(quertString, idValue)
     .then(res => res.rows)
-    .catch(console.error("error running in get all products by id!!!!"))
+    .catch(err => console.error("error running in get all products by id: ", err))
 };
 
 const deleteProductsById = function(db,id) {
@@ -50,7 +50,7 @@ const deleteProductsById = function(db,id) {
   return db
     .query(quertString,idValue)
     .then(res => res.rows)
-    .catch(console.error("error running in delete products!!!!"))
+    .catch(err => console.error("error running in delete products: ", err))
 };
 
 const editProductsById = function(db, newProduct) {
@@ -71,7 +71,7 @@ const editProductsById = function(db, newProduct) {
   return db
     .query(quertString,newValue)
     .then(res => res.rows)
-    .catch(console.error("error running in edit product by id!!!!"))
+    .catch(err => console.error("error running in edit product by id: ", err))
 };
 
 module.exports = {
