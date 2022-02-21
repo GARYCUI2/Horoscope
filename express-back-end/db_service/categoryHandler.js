@@ -33,8 +33,22 @@ const editCategoryByid = function(db,newCategory) {
     .catch(err => console.error("error running in edit category!!!!", err))
 };
 
+
+const addCategory = function(db,category_name) {
+  const newValue = [category_name];
+  const quertString = `INSERT INTO category (category_name)
+  VALUES ($1) RETURNING *`;
+  return db
+    .query(quertString,newValue)
+    .then(res => res.rows)
+    .catch(err => console.error("error running in edit category!!!!", err))
+};
+
+
+
 module.exports = {
   getAllCategorier,
   editCategoryByid,
-  deleteCategoryByid
+  deleteCategoryByid,
+  addCategory
 }

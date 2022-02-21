@@ -17,16 +17,30 @@ module.exports = (db) => {
     })
   })
 
+  // router.post("/", 
+  // (req,res) => {
+  //   const id = req.body.id;
+  //   const category_name = req.body.category_name;
+    
+  //   const newCategory = {
+  //     id,
+  //     category_name
+  //   };
+  //   categoryHelper.editCategoryByid(db, newCategory)
+  //   .then(dbRes => {
+  //     res.send(dbRes);
+  //   })
+  //   .catch(err => {
+  //     res.status(500)
+  //       .json({error:err.message})
+  //   })
+  // })
+
   router.post("/", 
   (req,res) => {
-    const id = req.body.id;
     const category_name = req.body.category_name;
-    
-    const newCategory = {
-      id,
-      category_name
-    };
-    categoryHelper.editCategoryByid(db, newCategory)
+ 
+    categoryHelper.addCategory(db, category_name)
     .then(dbRes => {
       res.send(dbRes);
     })
@@ -36,10 +50,10 @@ module.exports = (db) => {
     })
   })
 
-  router.delete("/", 
+  router.delete("/:id", 
   (req,res) => {
-    const deleteCategory = req.body.deleteCategory;
-    categoryHelper.deleteCategoryByid(db,deleteCategory)
+    const id = req.params.id;
+    categoryHelper.deleteCategoryByid(db,id)
     .then(dbRes => {
       res.send(dbRes);
     })

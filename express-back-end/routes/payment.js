@@ -49,9 +49,9 @@ const generateRandomString = (length = 6) =>Math.random().toString(20).substr(2,
 const postPaymentService = async (db, token, cartItems, totalPrice, order_id) => {
   const msg = {
     to: token.email,
-    from: 'garycui222@gmail.com', // Use the email address or domain you verified above
+    from: 'hailan6257@gmail.com', // Use the email address or domain you verified above
     subject: 'Shoping list in Luck Shop',
-    text: `Thanks for you shopping, I am so glad you spend $ ${totalPrice} successfully!`
+    text: `Thanks for you shopping, you paid ${totalPrice}. Use order Id ${order_id} to track your order!`
   };
   
   await paymentHelper.addorder(order_id, db, token, totalPrice);
