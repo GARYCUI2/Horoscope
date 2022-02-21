@@ -44,7 +44,7 @@ module.exports = (db) => {
 
   router.post("/", 
   (req,res) => {
-    const id = req.body.id;
+    //const id = req.body.id;
     const name = req.body.name;
     const description= req.body.description; 
     const category = req.body.category;
@@ -53,7 +53,7 @@ module.exports = (db) => {
     const quantity = req.body.quantity;
 
     const newProduct = {
-      id,
+      //id,
       name,
       description,
       category,
@@ -61,7 +61,7 @@ module.exports = (db) => {
       img_url,
       quantity
     }
-    productsHelper.editProductsById(db,newProduct)
+    productsHelper.addProducts(db,newProduct)
     .then(dbRes => {
       res.send(dbRes);
     })
