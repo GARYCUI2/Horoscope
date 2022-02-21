@@ -130,14 +130,16 @@ const handleProductSubmit = (e) => {
           <h1 className="font-weight-light text-center">Admin</h1>
           <h2>Categories:</h2>
           <table className="table">
+          <tbody>
             <tr>
             <th scope="col">Category ID</th>
               <th scope="col">Category Name</th>
                 <th scope="col">Delete</th>
                 </tr>
+                </tbody>
                 {
                 category.map(category => 
-                <tbody>
+                <tbody key = {category.id}>
                   <tr>
                 <th scope="row">{category.id}</th>
                 <td key={category.id}>{category.category_name}</td>
@@ -160,6 +162,7 @@ const handleProductSubmit = (e) => {
           <br />
           <h2>Products:</h2>
           <table className="table">
+          <tbody>
             <tr>
             <th scope="col">ID</th>
               <th scope="col">Name</th>
@@ -168,10 +171,11 @@ const handleProductSubmit = (e) => {
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Delete</th>
-                </tr>     
+                </tr>
+                </tbody>     
                 {
                 item.map(item => 
-                <tbody>
+                <tbody key = {item.id}>
                   <tr>
                 <th scope="row">{item.id}</th>
                 <td key={item.id}>{item.name}</td>
