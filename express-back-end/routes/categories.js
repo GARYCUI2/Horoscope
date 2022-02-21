@@ -50,10 +50,10 @@ module.exports = (db) => {
     })
   })
 
-  router.delete("/", 
+  router.delete("/:id", 
   (req,res) => {
-    const deleteCategory = req.body.deleteCategory;
-    categoryHelper.deleteCategoryByid(db,deleteCategory)
+    const id = req.params.id;
+    categoryHelper.deleteCategoryByid(db,id)
     .then(dbRes => {
       res.send(dbRes);
     })
