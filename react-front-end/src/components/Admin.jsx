@@ -75,11 +75,11 @@ function Admin() {
   }
 
   const handleCategoryDelete = (categoryID) => {
+    let updatedCategories = category.filter( category => category.id !== categoryID )
     axios.delete(`/api/categories/${categoryID}`)
-    
           .then((res) => {
             console.log(res.data)
-            setCatValue([...category])
+            setCategory([...updatedCategories])
           })
           .catch((err) => {
             console.log('error: ', err)
@@ -115,9 +115,10 @@ const handleProductSubmit = (e) => {
 }
 
       const handleProductDelete = (productID) => {
+        let updatedProducts = item.filter( products => products.id !== productID )
         axios.delete(`/api/products/${productID}`)
           .then((res) => {
-            setItem([...item])
+            setItem([...updatedProducts])
           })
           .catch((err) => {
             console.log('error: ', err)
