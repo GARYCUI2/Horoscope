@@ -18,7 +18,7 @@ function Orders() {
           <div className="col-lg-12 ">
             <form onSubmit={handleSubmit}>
             <div className="d-flex justify-content-center">
-          <h1 >Input your order number here:</h1>
+          <h1 >Track your order:</h1>
           </div>
               <label className="d-flex justify-content-center">
                 <input type="text" name="name" placeholder="Order Number"/>
